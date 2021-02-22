@@ -32,6 +32,7 @@ window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
         const downloadLink = document.createElement("a");
         downloadLink.download = fileNameToSaveAs;
         downloadLink.innerHTML = "Download File";
+
         if (window.webkitURL != null) {
             downloadLink.href = window.webkitURL.createObjectURL(
                 textFileAsBlob
