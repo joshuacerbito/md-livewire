@@ -1,0 +1,68 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background-color: #1e1e1e;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+        sans-serif;
+}
+
+.editor {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 100vh;
+}
+
+.editor > textarea,
+.editor > .editor__preview {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    padding: 2.75rem 2rem 2rem 2rem;
+    color: #efefef;
+}
+
+.editor > button {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: rgb(28, 206, 250);
+}
+
+.editor__markdown {
+    font-size: 1.25rem;
+    line-height: 1.75;
+    font-family: monospace;
+    outline: none;
+    background-color: #000;
+}
+
+.editor::before,
+.editor__preview::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 3px 10px;
+    border-radius: 0 0 5px 0;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #000;
+    background-color: rgba(255, 255, 255, 0.5);
+    z-index: 10;
+}
+
+.editor::before {
+    content: "markdown";
+}
+
+.editor__preview::before {
+    content: "preview";
+}
+
