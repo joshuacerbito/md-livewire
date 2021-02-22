@@ -48,7 +48,6 @@ window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 
     document.addEventListener("DOMContentLoaded", () => {
         $downloadBtn.addEventListener("click", (e) => {
-            alert(1);
             saveTextAsFile();
         });
     });
