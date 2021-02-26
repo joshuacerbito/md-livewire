@@ -20,7 +20,10 @@ window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 // });
 
 (() => {
-    const $downloadBtn = document.querySelector(".download-md");
+    const $editor = document.querySelector(".js-editor");
+    const $textarea = document.querySelector(".editor__markdown");
+    const $btnDownload = document.querySelector(".btn-save");
+    const $btnPreview = document.querySelector(".btn-preview");
 
     function saveTextAsFile(title = "filname") {
         const textToWrite = document.getElementById("editor__markdown").value;
@@ -48,8 +51,19 @@ window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
     }
 
     document.addEventListener("DOMContentLoaded", () => {
-        $downloadBtn.addEventListener("click", (e) => {
+        $btnDownload.addEventListener("click", (e) => {
             saveTextAsFile();
+        });
+
+        $btnPreview.addEventListener("click", (e) => {
+            $editor.classList.toggle("is-previewing");
+            $textarea.focus({ preventScroll: true });
+        });
+
+        $textarea.addEventListener("keyup", (e) => {
+            if (e.keyCode === 13) {
+                $textarea.scrollTop = $textarea.offsetHeight;
+            }
         });
     });
 })();
