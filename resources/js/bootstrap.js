@@ -22,7 +22,7 @@
     const $btnPreview = document.querySelector(".btn-preview");
 
     function saveTextAsFile(title = "filname") {
-        const textToWrite = document.getElementById("editor__markdown").value;
+        const textToWrite = $editor.value;
         const textFileAsBlob = new Blob([textToWrite], {
             type: "text/markdown",
         });
@@ -44,6 +44,7 @@
         }
 
         downloadLink.click();
+        $textarea.focus({ preventScroll: true });
     }
 
     document.addEventListener("DOMContentLoaded", () => {
@@ -53,7 +54,8 @@
 
         $btnPreview.addEventListener("click", (e) => {
             $editor.classList.toggle("is-previewing");
-            $textarea.focus({ preventScroll: true });
+            !$editor.classList.contains("is-previewing") &&
+                $textarea.focus({ preventScroll: true });
         });
 
         $textarea.addEventListener("keyup", (e) => {
